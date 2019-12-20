@@ -16,6 +16,6 @@ let urlDB;
 if (process.env.NODE_ENV === 'dev') {
     urlDB = 'mongodb://localhost:27017/cafe'; //Conexión local
 } else {
-    urlDB = 'mongodb+srv://Victoriasaurio:f98ups0SRWjoKTA1@cluster0-wdeni.mongodb.net/cafe'; /*Se utilizó una variable de entorno para MONGO*/
+    urlDB = process.env.MONGO_URI; /*Se utilizó una variable de entorno para MONGO*/
 }
 process.env.URLDB = urlDB; //Variable para la conexión a la base de datos
