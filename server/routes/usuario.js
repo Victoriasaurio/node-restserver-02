@@ -1,11 +1,13 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const _ = require('underscore');
+
 const Usuario = require('../models/usuario');
+const { VerificaToken, verificaAdmin_Role } = require('../middlewares/authentication');
 
 const app = express();
 
-app.get('/usuario', function(req, res) {
+app.get('/usuario', VerificaToken, (req, res) => {
     let desde = req.query.desde || 0;
     desde = Number(desde); /* allowed send parameters; convert DESDE number */
 
@@ -38,7 +40,7 @@ app.get('/usuario', function(req, res) {
         });
 });
 
-app.post('/usuario', function(req, res) {
+app.post('/usuario', [VerificaToken, verificaAdmin_Role], (req, res) => {
 
     let body = req.body;
 
@@ -64,7 +66,7 @@ app.post('/usuario', function(req, res) {
     });
 });
 
-app.put('/usuario/:id', function(req, res) {
+app.put('/usuario/:id', [VerificaToken, verificaAdmin_Role], (req, res) => {
     let id = req.params.id;
     let body = _.pick(req.body, ['nombre', 'email', 'img', 'role', 'estado']); /* Unicamente permite actualizar estos objetos por medio de pick */
 
@@ -94,7 +96,7 @@ app.put('/usuario/:id', function(req, res) {
     });
 });
 
-app.delete('/usuario/:id', function(req, res) {
+app.delete('/usuario/:id', [VerificaToken, verificaAdmin_Role], (req, res) => {
     let id = req.params.id;
 
     let cambiaEstado = {
