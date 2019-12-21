@@ -12,7 +12,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-app.use(require('./routes/usuario'));
+//Routes globales
+app.use(require('./routes/index'));
 
 //Configuración de la base de datos-Mongo
 mongoose.connect(process.env.URLDB, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }, //Resuelve warning de consola al ejecutar el proyecto
