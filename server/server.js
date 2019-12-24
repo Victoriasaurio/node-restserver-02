@@ -2,6 +2,7 @@ require('./config/config');
 
 const express = require('express');
 const mongoose = require('mongoose');
+const path = require('path');
 const app = express();
 
 const bodyParser = require('body-parser');
@@ -14,6 +15,9 @@ app.use(bodyParser.json())
 
 //Routes globales
 app.use(require('./routes/index'));
+
+//Habilitando la carpeta public
+app.use(express.static(path.resolve(__dirname, '../public')));
 
 //Configuración de la base de datos-Mongo
 mongoose.connect(process.env.URLDB, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }, //Resuelve warning de consola al ejecutar el proyecto
