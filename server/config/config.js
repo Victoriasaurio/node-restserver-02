@@ -34,3 +34,8 @@ if (process.env.NODE_ENV === 'dev') {
     urlDB = process.env.MONGO_URI; /*Se utilizó una variable de entorno para MONGO*/
 }
 process.env.URLDB = urlDB; //Variable para la conexión a la base de datos
+
+/*
+GOOGLE Client ID
+*/
+process.env.CLIENT_ID = process.env.CLIENT_ID || '498216475166-ok0t4ptcg5ireinlqqaakfb0ncdspcj7.apps.googleusercontent.com';
