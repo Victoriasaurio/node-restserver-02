@@ -16,7 +16,7 @@ CADUCIDAD TOKEN
 24 horas
 365 días
 */
-process.env.CADUCIDAD_TOKEN = 60 * 60 * 24 * 365;
+process.env.CADUCIDAD_TOKEN = '8760h';
 
 /*
 SEED
