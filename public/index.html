@@ -13,6 +13,8 @@
 </head>
 
 <body>
+    <!--Token para poder visualizar la imagen en url-local || renovar el token en caso de que expire-->
+    <!--<img src="http://localhost:3000/imagen/usuarios/5dfd29b4149fa778197ac209-592.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7InJvbGUiOiJBRE1JTl9ST0xFIiwiZXN0YWRvIjp0cnVlLCJnb29nbGUiOmZhbHNlLCJfaWQiOiI1ZGZkMjliNDE0OWZhNzc4MTk3YWMyMDkiLCJub21icmUiOiJFZCIsImVtYWlsIjoiZWRAZ21haWwuY29tIiwiX192IjowLCJpbWciOiI1ZGZkMjliNDE0OWZhNzc4MTk3YWMyMDktNTkyLmpwZyJ9LCJpYXQiOjE1Nzc1NjQ5NjUsImV4cCI6MTYwOTEwMDk2NX0.2gmqUt1xD8ksv0oosIE1Rw3UrBbqcTtAL8TlNesXJ14"> -->
 
     <div class="g-signin2" data-onsuccess="onSignIn"></div>
 
@@ -27,6 +29,7 @@
     </script>
 
     <script>
+
         function onSignIn(googleUser) {
             var profile = googleUser.getBasicProfile();
             console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
